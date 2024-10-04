@@ -13,7 +13,7 @@ public class GPSPoint {
 
 		// TODO - konstruktur
 
-		throw new UnsupportedOperationException(TODO.construtor("GPSPoint"));
+	
 		
 	}
 
@@ -71,7 +71,7 @@ public class GPSPoint {
 		
 		String str;
 		
-		return str;
+		
 
 		// TODO
 		
