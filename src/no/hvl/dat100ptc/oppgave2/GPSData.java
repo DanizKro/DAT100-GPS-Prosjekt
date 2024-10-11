@@ -30,26 +30,25 @@ public class GPSData {
 }
 
 	public boolean insert(String time, String latitude, String longitude, String elevation) {
-
-		// ta inn parametre og konvertere til data
 		
-		int tid = GPSDataConverter.toSeconds(time); 	 // Konverterer tiden til sekunder
-	    double lat = Double.parseDouble(latitude);           // Konverterer breddegrad til double
-	    double lon = Double.parseDouble(longitude);          // Konverterer lengdegrad til double
-	    double elev = Double.parseDouble(elevation);         // Konverterer høyde til double
+		int tid = GPSDataConverter.toSeconds(time); 	 
+	    double lat = Double.parseDouble(latitude);          
+	    double lon = Double.parseDouble(longitude);          
+	    double elev = Double.parseDouble(elevation);         
 	    
 		// Laget en ny objekt referansetabell med dataene
 	    
 	    GPSPoint point = new GPSPoint(tid, lat, lon, elev);
 		
-	    // sjekke om plass i objekt tabell, og returnerer tabellen hvis TRUE
+	    // sjekker om plass i objekt tabell, og returnerer tabellen hvis TRUE
 	    return insertGPS(point);
 	}
 
 	public void print() {
 
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO 
+		for (int i = 0; i < gpspoints.length; i ++) {
+			
+			System.out.println(gpspoints[i]);
+		}
 	}
 }
