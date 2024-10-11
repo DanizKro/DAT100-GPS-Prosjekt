@@ -37,14 +37,13 @@ public class GPSData {
 	    double lat = Double.parseDouble(latitude);           // Konverterer breddegrad til double
 	    double lon = Double.parseDouble(longitude);          // Konverterer lengdegrad til double
 	    double elev = Double.parseDouble(elevation);         // Konverterer høyde til double
-		
-		// sjekke om plass i objekt tabell
-	  
-		
-		// Hvis plass, putte lage ny objekt peker
+	    
+		// Laget en ny objekt referansetabell med dataene
 	    
 	    GPSPoint point = new GPSPoint(tid, lat, lon, elev);
 		
+	    // sjekke om plass i objekt tabell, og returnerer tabellen hvis TRUE
+	    return insertGPS(point);
 	}
 
 	public void print() {
