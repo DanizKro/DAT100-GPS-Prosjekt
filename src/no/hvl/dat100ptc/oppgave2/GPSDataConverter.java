@@ -26,6 +26,7 @@ public class GPSDataConverter {
 		return secs;
 	}
 
+		// Skal ta inn data og lage et nytt GPS Point objekt med lagret data.
 	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
 
 		
