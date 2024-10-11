@@ -28,10 +28,17 @@ public class GPSDataConverter {
 
 	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
 
-		GPSPoint gpspoint;
+		
+		// Bruker metoden toSeconds for å konvertere tid
+		int time = GPSDataConverter.toSeconds(timeStr);
+	
+		// Konverter latitude, longitude og elevation til double
+        double latitude = Double.parseDouble(latitudeStr);
+        double longitude = Double.parseDouble(longitudeStr);
+        double elevation = Double.parseDouble(elevationStr);
 
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+        // Opprett et GPSPoint objekt
+        return new GPSPoint(time, latitude, longitude, elevation);
 		
 	}
 	
