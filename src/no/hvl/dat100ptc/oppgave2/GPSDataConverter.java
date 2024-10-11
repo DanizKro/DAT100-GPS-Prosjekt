@@ -10,6 +10,13 @@ public class GPSDataConverter {
 
 	public static int toSeconds(String timestr) {
 		
+		// "2017-08-13T08:52:26.000Z"
+		// Tallet 08 har posisjon 11-13 - Timer
+		// Tallet 52 har posisjon 14-16 - Minutter
+		// Tallet 26 har posisjon 17-19 - Sekunder
+		
+		//bruker substring-metoden i String-klassen. tallet tallet i metoden avgir hvor start og slutt er på tallet du ønker.
+		
 		int mins = Integer.parseInt(timestr.substring(14, 16))*60;
 		int timer = Integer.parseInt(timestr.substring(11, 13))*60*60;
 		int sek = Integer.parseInt(timestr.substring(17, 19));
