@@ -10,9 +10,8 @@ public class GPSData {
 
 	public GPSData(int antall) {
 
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO
+		gpspoints = new GPSPoint[antall];
+	
 	}
 
 	public GPSPoint[] getGPSPoints() {
@@ -20,22 +19,31 @@ public class GPSData {
 	}
 	
 	protected boolean insertGPS(GPSPoint gpspoint) {
-
-		boolean inserted = false;
 		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO 
-	
-	}
+		if (antall < gpspoints.length) {
+			gpspoints[antall] = gpspoint;
+			antall++;
+			return true;
+		}	else {
+            return false;
+		}	
+}
 
 	public boolean insert(String time, String latitude, String longitude, String elevation) {
 
-		GPSPoint gpspoint;
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO 
+		// ta inn parametre og konvertere til data
+		
+		int tid = GPSDataConverter.toSeconds(time); 	 // Konverterer tiden til sekunder
+	    double lat = Double.parseDouble(latitude);           // Konverterer breddegrad til double
+	    double lon = Double.parseDouble(longitude);          // Konverterer lengdegrad til double
+	    double elev = Double.parseDouble(elevation);         // Konverterer høyde til double
+		
+		// sjekke om plass i objekt tabell
+	  
+		
+		// Hvis plass, putte lage ny objekt peker
+	    
+	    GPSPoint point = new GPSPoint(tid, lat, lon, elev);
 		
 	}
 
