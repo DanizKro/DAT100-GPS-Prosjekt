@@ -20,13 +20,14 @@ public class GPSData {
 	
 	protected boolean insertGPS(GPSPoint gpspoint) {
 		
+		boolean svar = false;
+		
 		if (antall < gpspoints.length) {
 			gpspoints[antall] = gpspoint;
 			antall++;
-			return true;
-		}	else {
-            return false;
-		}	
+			svar = true;
+			
+		}	return svar;	
 }
 
 	public boolean insert(String time, String latitude, String longitude, String elevation) {
