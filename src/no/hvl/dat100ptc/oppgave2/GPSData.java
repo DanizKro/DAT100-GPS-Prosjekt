@@ -46,10 +46,12 @@ public class GPSData {
 	}
 
 	public void print() {
-
+		
+		System.out.println("===== GPS Data - START =====");
+		
 		for (int i = 0; i < gpspoints.length; i ++) {
+			System.out.print(gpspoints[i]);
 			
-			System.out.println(gpspoints[i]);
-		}
+		} System.out.print("===== GPS Data - Slutt =====");
 	}
 }

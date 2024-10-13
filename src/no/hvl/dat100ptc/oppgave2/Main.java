@@ -7,17 +7,22 @@ public class Main {
 	
 	public static void main(String[] args) {
 
+		// GPSPoint(int time, double latitude, double longitude, double elevation)
 		GPSPoint point1 = new GPSPoint(29839, 6.28882, 5.22222, 50.2);
 		GPSPoint point2 = new GPSPoint(28302, 8.82322, 7.01298, 49.9);
+		GPSPoint point3 = new GPSPoint(62362, 5.83433, 6.95228, 48.5);
 		
-		GPSData gpspoints = new GPSData(2);
+		// GPSData(int antall)
+		// gpspoints = new GPSPoint[antall];
+		GPSData gpspoints = new GPSData(3);
 		
-		String p1 = point1.toString();
+		// Public boolean insert(String time, String latitude, String longitude, String elevation)
+		boolean punk1 = gpspoints.insertGPS(point1);
+		boolean punk2 = gpspoints.insertGPS(point2);
+		boolean punk3 = gpspoints.insertGPS(point3);
 		
 		
-		
-		System.out.print(p1);
-		
+		gpspoints.print();;
 		
 	}
 }
