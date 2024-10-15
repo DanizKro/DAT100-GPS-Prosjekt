@@ -175,11 +175,11 @@ public class GPSComputer {
 		
 		System.out.println("===================================");
 		System.out.println("Total time      :" + totalFormatert);
-		System.out.println("Total distance 	:" + "  " + String.format("%.2f", totalDistanse) + " km");
-		System.out.println("Total elevation :" + " " + String.format("%.2f", totalHoyde) + " m");
+		System.out.println("Total distance 	:" + "   " + String.format("%.2f", totalDistanse) + " km");
+		System.out.println("Total elevation :" + "  " + String.format("%.2f", totalHoyde) + " m");
 		System.out.println("Max speed       :" + "   " +String.format("%.2f", maxSpeed) + " km/t");
 		System.out.println("Average speed   :" + "   " +String.format("%.2f", gjHastighet) + " km/t");
-		System.out.println("Energy          :" + "   " +String.format("%.2f", kcal) + " kcal");
+		System.out.println("Energy          :" + "  " +String.format("%.2f", kcal) + " kcal");
 		System.out.println("===================================");
 		
 		
