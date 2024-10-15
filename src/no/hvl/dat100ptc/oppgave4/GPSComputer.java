@@ -100,10 +100,10 @@ public class GPSComputer {
 			if (speeds[i] > maxspeed) {
 				maxspeed = speeds[i];
 			}
-		} return maxspeed;
+		} return maxspeed; // METER PER SEKUND
 	}
 
-	public double averageSpeed() {
+	public double averageSpeed() { 
 		
 		// m/s = meter totalt / tid totalt
 		// bruker metoden total distanse og total tid 
@@ -115,7 +115,7 @@ public class GPSComputer {
 		
 		average = (distanse/totalTid);
 	
-		return average;
+		return average; // METER PER SEKUND
 	}
 
 
