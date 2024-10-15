@@ -40,7 +40,7 @@ public class GPSComputer {
 			double lengde = GPSUtils.distance(gpspoints[i], gpspoints[i+1]);
 			distance += lengde;
 		} 
-		return distance;
+		return distance; // DISTANSE I METER
 	}
 
 	public double totalElevation() {
@@ -59,7 +59,7 @@ public class GPSComputer {
 	            elevation += hoydeForskjell;
 	        }
 	    }
-	    return elevation;
+	    return elevation; // HØYDE I METER
 	}
 
 	public int totalTime() {
@@ -166,10 +166,10 @@ public class GPSComputer {
 		
 		int totalTid = totalTime();
 		String totalFormatert = GPSUtils.formatTime(totalTid);
-		double totalDistanse = totalDistance()/1000;
+		double totalDistanse = totalDistance()/1000; 				// Distanse i METER / 1000 = km
 		double totalHoyde = totalElevation();
-		double maxSpeed = maxSpeed()*3.6;
-		double gjHastighet = averageSpeed()*3.6;
+		double maxSpeed = maxSpeed()*3.6;							// METER PER SEKUND - > * 3.6 for å få km/t
+		double gjHastighet = averageSpeed()*3.6;					// METER PER SEKUND - > * 3.6 for å få km/t
 		double kcal = totalKcal(WEIGHT);
 		
 		
