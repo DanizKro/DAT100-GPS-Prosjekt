@@ -174,8 +174,8 @@ public class GPSComputer {
 		String totalFormatert = GPSUtils.formatTime(totalTid);
 		double totalDistanse = totalDistance()/1000;
 		double totalHoyde = totalElevation();
-		double maxSpeed = maxSpeed();
-		double gjHastighet = averageSpeed();
+		double maxSpeed = maxSpeed()*3.6;
+		double gjHastighet = averageSpeed()*3.6;
 		double kcal = totalKcal(WEIGHT);
 		
 		
