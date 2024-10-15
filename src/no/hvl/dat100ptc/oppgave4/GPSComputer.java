@@ -96,7 +96,7 @@ public class GPSComputer {
 		
 		double[] speeds = speeds();
 		
-		for (int i = 0; i < speeds.length-1; i ++) {
+		for (int i = 0; i < speeds.length; i ++) {
 			if (speeds[i] > maxspeed) {
 				maxspeed = speeds[i];
 			}
