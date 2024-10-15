@@ -151,9 +151,9 @@ public class GPSComputer {
 		double totalkcal = 0;
 		double[] speed = speeds();
 		
-		for (int i = 1; i < speed.length; i++) {
+		for (int i = 0; i < speed.length; i++) {
 			
-			int sekunder = gpspoints[i].getTime() - gpspoints[i-1].getTime();
+			int sekunder = gpspoints[i+1].getTime() - gpspoints[i].getTime();
 			
 			totalkcal += kcal(weight,sekunder,speed[i]);
 			
