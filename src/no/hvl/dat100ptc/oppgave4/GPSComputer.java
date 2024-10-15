@@ -93,17 +93,13 @@ public class GPSComputer {
 		// Ta inn tabellen speeds, sjekke om hvert element i den er større en forrige, hvis ja, endre verdi på maxspeed
 		
 		double maxspeed = 0;
-		double neste = 0;
 		
 		double[] speeds = speeds();
 		
 		for (int i = 0; i < speeds.length-1; i ++) {
-			
-			maxspeed = speeds[i];
-			neste = speeds[i+1];
-			
-			if (maxspeed < neste) {
-				maxspeed = neste;
+
+			if (speeds[i] > maxspeed) {
+				maxspeed = speeds[i];
 			}
 			
 		} return maxspeed;
