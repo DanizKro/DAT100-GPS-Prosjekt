@@ -12,6 +12,8 @@ public class Main {
 		GPSPoint point2 = new GPSPoint(28302, 8.82322, 7.01298, 49.9);
 		GPSPoint point3 = new GPSPoint(62362, 5.83433, 6.95228, 48.5);
 		
+		double s = point1.getLatitude();
+		
 		// GPSData(int antall)
 		// gpspoints = new GPSPoint[antall];
 		GPSData gpspoints = new GPSData(3);
@@ -23,6 +25,8 @@ public class Main {
 		
 		
 		gpspoints.print();;
+		
+	
 		
 	}
 }

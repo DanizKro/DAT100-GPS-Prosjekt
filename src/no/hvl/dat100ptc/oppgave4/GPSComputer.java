@@ -30,29 +30,49 @@ public class GPSComputer {
 	public double totalDistance() {
 
 		double distance = 0;
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO
-
+		
+		// Variabel
+		// kalle metode for avstand
+		// Avstand (i) og i+1
+		// repeter til < tab.length-1 (-1 fordi siste elementet i tabellen er en indeks lavere enn i)
+		
+		for (int i = 0; i < gpspoints.length-1; i++) {
+			double lengde = GPSUtils.distance(gpspoints[i], gpspoints[i+1]);
+			distance += lengde;
+		} 
+		return distance;
 	}
 
 	public double totalElevation() {
 
 		double elevation = 0;
 
-		throw new UnsupportedOperationException(TODO.method());
+		// Variabel
+		// Kalle metode for høyde i en repeterende for-løkke
+		// Ta høyden minus forrige høyde for å sjekke om høyden har økt (må starte i = 1 for å sjekke om den kommer til å øke)
 		
-		// TODO 
-		
+	    for (int i = 1; i < gpspoints.length; i++) {
+	    	
+	        double hoydeForskjell = gpspoints[i].getElevation() - gpspoints[i-1].getElevation();
+	        
+	        if (hoydeForskjell > 0) {
+	            elevation += hoydeForskjell;
+	        }
+	    }
+	    return elevation;
 	}
 
 	public int totalTime() {
-
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
 		
-	}
+		// Litt usikker på forklaring, fik hjelp fra chatt
+
+		int startTid = gpspoints[0].getTime();
+		int sluttTid = gpspoints[gpspoints.length-1].getTime();
+		int totalTid = sluttTid-startTid;
+			
+		return (totalTid);
+		
+		} 
 		
 
 	public double[] speeds() {
