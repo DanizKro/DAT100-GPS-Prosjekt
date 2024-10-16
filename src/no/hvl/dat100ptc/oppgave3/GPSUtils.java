@@ -119,7 +119,7 @@ public class GPSUtils {
 
 		String formatertTid = String.format("%02d:%02d:%02d", hour, min, sec);
 		
-		return String.format("%10s", formatertTid);
+		return String.format("%10s", formatertTid);					// Metoden String.format(kode, objekt) kan man gjøre mye med.
 		
 	}
 	
