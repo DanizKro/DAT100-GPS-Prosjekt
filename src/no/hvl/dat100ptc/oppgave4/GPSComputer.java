@@ -131,15 +131,15 @@ public class GPSComputer {
 		
 		if (speedmph < 10 ){		
 			met = 4.0;
-		} else if(speedmph > 10 && speedmph < 12){		
+		} else if(speedmph >= 10 && speedmph < 12){		
 			met = 6.0;
-		} else if (speedmph > 12 && speedmph < 14){
+		} else if (speedmph >= 12 && speedmph < 14){
 			met = 8.0;
-		} else if (speedmph > 14 && speedmph < 16) {
+		} else if (speedmph >= 14 && speedmph < 16) {
 			met = 10.0;
-		} else if (speedmph > 16 && speedmph < 20) {
+		} else if (speedmph >= 16 && speedmph < 20) {
 			met = 12.0;
-		} else if (speedmph > 20){
+		} else if (speedmph >= 20){
 			met = 16.0;
 		}
 		
