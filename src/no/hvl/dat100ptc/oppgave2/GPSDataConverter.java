@@ -29,8 +29,6 @@ public class GPSDataConverter {
 		// Skal ta inn data og lage et nytt GPS Point objekt med lagret data.
 	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
 
-		
-		// Bruker metoden toSeconds for å konvertere tid
 		int time = GPSDataConverter.toSeconds(timeStr);
 	
 		// Konverter latitude, longitude og elevation til double
@@ -38,7 +36,7 @@ public class GPSDataConverter {
         double longitude = Double.parseDouble(longitudeStr);
         double elevation = Double.parseDouble(elevationStr);
 
-        // Opprett et GPSPoint objekt
+        // Opprett et GPSPoint objekt med String-verdiene.
         return new GPSPoint(time, latitude, longitude, elevation);
 		
 	}

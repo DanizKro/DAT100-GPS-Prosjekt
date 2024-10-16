@@ -37,8 +37,6 @@ public class GPSData {
 	    double lon = Double.parseDouble(longitude);          
 	    double elev = Double.parseDouble(elevation);         
 	    
-		// Laget en ny objekt referansetabell med dataene
-	    
 	    GPSPoint point = new GPSPoint(tid, lat, lon, elev);
 		
 	    // sjekker om plass i objekt tabell, og returnerer tabellen hvis TRUE
