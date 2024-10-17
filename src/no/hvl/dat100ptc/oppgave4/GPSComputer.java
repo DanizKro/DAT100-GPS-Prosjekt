@@ -70,7 +70,7 @@ public class GPSComputer {
 		int sluttTid = gpspoints[gpspoints.length-1].getTime();
 		int totalTid = sluttTid-startTid;
 			
-		return (totalTid);
+		return totalTid;
 		
 		} 
 		
