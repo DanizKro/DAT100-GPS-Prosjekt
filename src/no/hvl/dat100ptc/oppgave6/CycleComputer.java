@@ -14,16 +14,16 @@ public class CycleComputer extends EasyGraphics {
 
 	private static int SPACE = 10;
 	private static int MARGIN = 20;
-	
+
 	// FIXME: take into account number of measurements / gps points
-	private static int ROUTEMAPXSIZE = 800; 
+	private static int ROUTEMAPXSIZE = 800;
 	private static int ROUTEMAPYSIZE = 400;
 	private static int HEIGHTSIZE = 200;
 	private static int TEXTWIDTH = 200;
 
 	private GPSComputer gpscomp;
 	private GPSPoint[] gpspoints;
-	
+
 	private int N = 0;
 
 	private double minlon, minlat, maxlon, maxlat;
@@ -46,7 +46,7 @@ public class CycleComputer extends EasyGraphics {
 	public void run() {
 
 		// throw new UnsupportedOperationException(TODO.method());
-		
+
 		N = gpspoints.length; // number of gps points
 
 		minlon = GPSUtils.findMin(GPSUtils.getLongitudes(gpspoints));
@@ -58,9 +58,7 @@ public class CycleComputer extends EasyGraphics {
 		xstep = xstep();
 		ystep = ystep();
 
-		makeWindow("Cycle Computer", 
-				2 * MARGIN + ROUTEMAPXSIZE,
-				2 * MARGIN + ROUTEMAPYSIZE + HEIGHTSIZE + SPACE);
+		makeWindow("Cycle Computer", 2 * MARGIN + ROUTEMAPXSIZE, 2 * MARGIN + ROUTEMAPYSIZE + HEIGHTSIZE + SPACE);
 
 		bikeRoute();
 
@@ -70,39 +68,39 @@ public class CycleComputer extends EasyGraphics {
 	public void bikeRoute() {
 
 		throw new UnsupportedOperationException(TODO.method());
-		
+
 	}
 
 	public double xstep() {
 
 		throw new UnsupportedOperationException(TODO.method());
-	
+
 	}
 
 	public double ystep() {
 
 		throw new UnsupportedOperationException(TODO.method());
-		
+
 	}
-    
+
 	// show current speed and time (i'th GPS point)
 	public void showCurrent(int i) {
-		
+
 		throw new UnsupportedOperationException(TODO.method());
-		
+
 	}
 
 	// show current height (i'th GPS point)
 	public void showHeight(int ybase, int i) {
-		
+
 		throw new UnsupportedOperationException(TODO.method());
-		
+
 	}
-	
+
 	// show current position (i'th GPS point)
 	public void showPosition(int i) {
 
 		throw new UnsupportedOperationException(TODO.method());
-		
+
 	}
 }

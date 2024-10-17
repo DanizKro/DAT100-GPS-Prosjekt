@@ -9,9 +9,9 @@ import no.hvl.dat100ptc.oppgave3.GPSUtils;
 import no.hvl.dat100ptc.TODO;
 
 public class GPSComputer {
-	
+
 	private GPSPoint[] gpspoints;
-	
+
 	public GPSComputer(String filename) {
 
 		GPSData gpsdata = GPSDataFileReader.readGPSFile(filename);
@@ -22,24 +22,25 @@ public class GPSComputer {
 	public GPSComputer(GPSPoint[] gpspoints) {
 		this.gpspoints = gpspoints;
 	}
-	
+
 	public GPSPoint[] getGPSPoints() {
 		return this.gpspoints;
 	}
-	
+
 	public double totalDistance() {
 
 		double distance = 0;
-		
+
 		// Variabel
 		// kalle metode for avstand
 		// Avstand (i) og i+1
-		// repeter til < tab.length-1 (-1 fordi siste elementet i tabellen er en indeks lavere enn i)
-		
-		for (int i = 0; i < gpspoints.length-1; i++) {
-			double lengde = GPSUtils.distance(gpspoints[i], gpspoints[i+1]);
+		// repeter til < tab.length-1 (-1 fordi siste elementet i tabellen er en indeks
+		// lavere enn i)
+
+		for (int i = 0; i < gpspoints.length - 1; i++) {
+			double lengde = GPSUtils.distance(gpspoints[i], gpspoints[i + 1]);
 			distance += lengde;
-		} 
+		}
 		return distance; // DISTANSE I METER
 	}
 
@@ -49,144 +50,143 @@ public class GPSComputer {
 
 		// Variabel
 		// Kalle metode for høyde i en repeterende for-løkke
-		// Ta høyden minus forrige høyde for å sjekke om høyden har økt (må starte i = 1 for å sjekke om den kommer til å øke)
-		
-	    for (int i = 1; i < gpspoints.length; i++) {
-	    	
-	        double hoydeForskjell = gpspoints[i].getElevation() - gpspoints[i-1].getElevation();
-	        
-	        if (hoydeForskjell > 0) {
-	            elevation += hoydeForskjell;
-	        }
-	    }
-	    return elevation; // HØYDE I METER
+		// Ta høyden minus forrige høyde for å sjekke om høyden har økt (må starte i = 1
+		// for å sjekke om den kommer til å øke)
+
+		for (int i = 1; i < gpspoints.length; i++) {
+
+			double hoydeForskjell = gpspoints[i].getElevation() - gpspoints[i - 1].getElevation();
+
+			if (hoydeForskjell > 0) {
+				elevation += hoydeForskjell;
+			}
+		}
+		return elevation; // HØYDE I METER
 	}
 
 	public int totalTime() {
-		
+
 		// Litt usikker på forklaring, fik hjelp fra chatt
 
 		int startTid = gpspoints[0].getTime();
-		int sluttTid = gpspoints[gpspoints.length-1].getTime();
-		int totalTid = sluttTid-startTid;
-			
+		int sluttTid = gpspoints[gpspoints.length - 1].getTime();
+		int totalTid = sluttTid - startTid;
+
 		return totalTid;
-		
-		} 
-		
+
+	}
 
 	public double[] speeds() {
-		
+
 		// speed tabell = bruke GPSUtils speed metode
 
-		double[] speeds = new double[gpspoints.length-1];
-		
-		for (int i = 0; i < speeds.length; i ++) {
-			speeds[i] = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);
+		double[] speeds = new double[gpspoints.length - 1];
+
+		for (int i = 0; i < speeds.length; i++) {
+			speeds[i] = GPSUtils.speed(gpspoints[i], gpspoints[i + 1]);
 		}
-		
+
 		return speeds;
-	} 
-	
+	}
+
 	public double maxSpeed() {
-		
-		// Ta inn tabellen speeds, sjekke om hvert element i den er større en forrige, hvis ja, endre verdi på maxspeed
-		
+
+		// Ta inn tabellen speeds, sjekke om hvert element i den er større en forrige,
+		// hvis ja, endre verdi på maxspeed
+
 		double maxspeed = 0;
-		
+
 		double[] speeds = speeds();
-		
-		for (int i = 0; i < speeds.length; i ++) {
+
+		for (int i = 0; i < speeds.length; i++) {
 			if (speeds[i] > maxspeed) {
 				maxspeed = speeds[i];
 			}
-		} return maxspeed; // METER PER SEKUND
+		}
+		return maxspeed; // METER PER SEKUND
 	}
 
-	public double averageSpeed() { 
-		
+	public double averageSpeed() {
+
 		// m/s = meter totalt / tid totalt
-		// bruker metoden total distanse og total tid 
+		// bruker metoden total distanse og total tid
 
 		double average = 0;
-		
+
 		double distanse = totalDistance();
 		int totalTid = totalTime();
-		
-		average = (distanse/totalTid);
-	
+
+		average = (distanse / totalTid);
+
 		return average; // METER PER SEKUND
 	}
-
 
 	// conversion factor m/s to miles per hour (mps)
 	public static final double MS = 2.23;
 
 	public double kcal(double weight, int secs, double speed) {
 
-		
-		double met = 0;		
+		double met = 0;
 		double speedmph = speed * MS;
-		double t = secs/60.0/60.0;
-		
-		if (speedmph < 10 ){		
+		double t = secs / 60.0 / 60.0;
+
+		if (speedmph < 10) {
 			met = 4.0;
-		} else if(speedmph >= 10 && speedmph < 12){		
+		} else if (speedmph >= 10 && speedmph < 12) {
 			met = 6.0;
-		} else if (speedmph >= 12 && speedmph < 14){
+		} else if (speedmph >= 12 && speedmph < 14) {
 			met = 8.0;
 		} else if (speedmph >= 14 && speedmph < 16) {
 			met = 10.0;
 		} else if (speedmph >= 16 && speedmph < 20) {
 			met = 12.0;
-		} else if (speedmph >= 20){
+		} else if (speedmph >= 20) {
 			met = 16.0;
 		}
-		
+
 		double kcal = met * weight * t;
-		
+
 		return kcal;
 	}
 
 	public double totalKcal(double weight) {
-		
+
 		// usikker på hvilke verier som skal brukes?
 
 		double totalkcal = 0;
 		double[] speed = speeds();
-		
+
 		for (int i = 0; i < speed.length; i++) {
-			
-			int sekunder = gpspoints[i+1].getTime() - gpspoints[i].getTime();
-			
-			totalkcal += kcal(weight,sekunder,speed[i]);
-			
-		} return totalkcal;
+
+			int sekunder = gpspoints[i + 1].getTime() - gpspoints[i].getTime();
+
+			totalkcal += kcal(weight, sekunder, speed[i]);
+
+		}
+		return totalkcal;
 	}
-	
+
 	private static double WEIGHT = 80.0;
-	
+
 	public void displayStatistics() {
-		
+
 		int totalTid = totalTime();
 		String totalFormatert = GPSUtils.formatTime(totalTid);
-		double totalDistanse = totalDistance()/1000; 				// Distanse i METER / 1000 = km
+		double totalDistanse = totalDistance() / 1000; // Distanse i METER / 1000 = km
 		double totalHoyde = totalElevation();
-		double maxSpeed = maxSpeed()*3.6;							// METER PER SEKUND - > * 3.6 for å få km/t
-		double gjHastighet = averageSpeed()*3.6;					// METER PER SEKUND - > * 3.6 for å få km/t
+		double maxSpeed = maxSpeed() * 3.6; // METER PER SEKUND - > * 3.6 for å få km/t
+		double gjHastighet = averageSpeed() * 3.6; // METER PER SEKUND - > * 3.6 for å få km/t
 		double kcal = totalKcal(WEIGHT);
-		
-		
+
 		System.out.println("===================================");
 		System.out.println("Total time      :" + totalFormatert);
 		System.out.println("Total distance 	:" + "   " + String.format("%.2f", totalDistanse) + " km");
 		System.out.println("Total elevation :" + "  " + String.format("%.2f", totalHoyde) + " m");
-		System.out.println("Max speed       :" + "   " +String.format("%.2f", maxSpeed) + " km/t");
-		System.out.println("Average speed   :" + "   " +String.format("%.2f", gjHastighet) + " km/t");
-		System.out.println("Energy          :" + "  " +String.format("%.2f", kcal) + " kcal");
+		System.out.println("Max speed       :" + "   " + String.format("%.2f", maxSpeed) + " km/t");
+		System.out.println("Average speed   :" + "   " + String.format("%.2f", gjHastighet) + " km/t");
+		System.out.println("Energy          :" + "  " + String.format("%.2f", kcal) + " kcal");
 		System.out.println("===================================");
-		
-		
+
 	}
 
 }

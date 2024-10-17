@@ -17,11 +17,11 @@ public class ShowRoute extends EasyGraphics {
 
 	private GPSPoint[] gpspoints;
 	private GPSComputer gpscomputer;
-	
+
 	private double minlon, minlat, maxlon, maxlat;
 
 	private double xstep, ystep;
-	
+
 	public ShowRoute() {
 
 		String filename = JOptionPane.showInputDialog("GPS data filnavn: ");
@@ -44,14 +44,14 @@ public class ShowRoute extends EasyGraphics {
 
 		maxlon = GPSUtils.findMax(GPSUtils.getLongitudes(gpspoints));
 		maxlat = GPSUtils.findMax(GPSUtils.getLatitudes(gpspoints));
-		
+
 		xstep = scale(MAPXSIZE, minlon, maxlon);
 		ystep = scale(MAPYSIZE, minlat, maxlat);
-		
+
 		showRouteMap(MARGIN + MAPYSIZE);
 
 		replayRoute(MARGIN + MAPYSIZE);
-		
+
 		showStatistics();
 	}
 
@@ -64,28 +64,28 @@ public class ShowRoute extends EasyGraphics {
 
 	public void showRouteMap(int ybase) {
 
-		// TODO 
+		// TODO
 		throw new UnsupportedOperationException(TODO.method());
-		
+
 	}
 
 	public void showStatistics() {
 
 		int TEXTDISTANCE = 20;
 
-		setColor(0,0,0);
-		setFont("Courier",12);
-		
+		setColor(0, 0, 0);
+		setFont("Courier", 12);
+
 		// TODO
 		throw new UnsupportedOperationException(TODO.method());
-		
+
 	}
 
 	public void replayRoute(int ybase) {
 
-		// TODO 
+		// TODO
 		throw new UnsupportedOperationException(TODO.method());
-		
+
 	}
 
 }

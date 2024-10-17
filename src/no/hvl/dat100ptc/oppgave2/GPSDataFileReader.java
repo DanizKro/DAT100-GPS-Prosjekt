@@ -9,7 +9,7 @@ public class GPSDataFileReader {
 	// entry separator in CSV files
 	private static String SEP_STR = ",";
 
-	private static  String GPSDATA_FORMAT = "time,lat,lon,elevation,accuracy,bearing,speed,satellites,"
+	private static String GPSDATA_FORMAT = "time,lat,lon,elevation,accuracy,bearing,speed,satellites,"
 			+ "provider,hdop,vdop,pdop,geoidheight,ageofdgpsdata,dgpsid,activity,battery,annotation";
 
 	// location of GPS data files in this Eclipse project
@@ -50,8 +50,8 @@ public class GPSDataFileReader {
 				latitude = gpsdatapoint[1];
 				longitude = gpsdatapoint[2];
 				elevation = gpsdatapoint[3];
-				
-				gpsdata.insert(time,latitude,longitude,elevation);
+
+				gpsdata.insert(time, latitude, longitude, elevation);
 
 				// try reading next line
 				line = br.readLine();
@@ -59,10 +59,10 @@ public class GPSDataFileReader {
 			}
 
 		} catch (FileNotFoundException e) {
-		    JOptionPane.showMessageDialog(null,"GPS filen " + filename + "finnes ikke");
+			JOptionPane.showMessageDialog(null, "GPS filen " + filename + "finnes ikke");
 			e.printStackTrace();
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null,"GPS filen " + filename + "kunne ikke leses");
+			JOptionPane.showMessageDialog(null, "GPS filen " + filename + "kunne ikke leses");
 			e.printStackTrace();
 		} finally {
 			if (br != null) {
